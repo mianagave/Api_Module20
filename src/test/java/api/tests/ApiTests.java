@@ -16,24 +16,20 @@ public class ApiTests {
         Assertions.assertEquals(200, response.statusCode());
 
     }
-
     @Test
     public void testGetUserList_InvalidPage() {
-        Response response = requestHelper.getUserList(0);
+        Response response = requestHelper.getUserList(-1);
         Assertions.assertEquals(400, response.statusCode());
     }
-
     @Test
     public void testGetUserList_MinBoundary() {
-        // Menguji batas minimum, yaitu halaman pertama
         Response response = requestHelper.getUserList(1);
         Assertions.assertEquals(200, response.statusCode());
 
     }
-
     @Test
     public void testGetUserList_MaxBoundary() {
-        // Menguji batas maksimum dengan halaman besar (misalnya, 1000)
+
         Response response = requestHelper.getUserList(1000);
         Assertions.assertEquals(200, response.statusCode());
 
